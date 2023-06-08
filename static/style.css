@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  transition: 0.3s;
+}
+
+.fileload{
+  display: flex;
+  flex-direction: row;
+  border: 2px black;
+  background-color: white;
+  height: 20px;
+
+
+}
+
+.filenamelabel{
+  width: 80%;
+  border-top: 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-align: center;
+}
+.uploadbutton{
+  width: 30px;
+  height: 24px;
+  border-radius: 0 0 0 0;
+  text-align: center;
+}
+
+body {
+  height: 100%;
+  background: black;
+}
+
+.top {
+  height: 100px;
+  background: rgb(2, 0, 36);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.body {
+  display: flex;
+}
+
+.left {
+  width: 20%;
+  height: 100.8vh;
+  padding: 0 20px 20px 20px;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.left button {
+  background-color: wheat;
+}
+
+label {
+  background: white;
+  border-radius: 5px 5px 0 0;
+  padding: 4px;
+  width: max-content;
+  cursor: pointer;
+  width: 15.25px;
+}
+
+.right {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background: wheat;
+}
+
+.aha{
+  height: 30px;
+}
+
+#uploadform div {
+  display: flex;
+  font-size: 14px;
+  height: 24px;
+}
+
+span#file-chosen {
+  width: 100%;
+  cursor: default;
+  border-bottom: 0.5px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+}
+
+button {
+  border: 0;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 7px;
+  color: #415a77;
+  background: rgb(2, 0, 36);
+  cursor: pointer;
+}
+
+.file,
+.folder {
+  min-width: 100px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 20px;
+  padding-bottom: 2px;
+  border-radius: 5px;
+  mix-blend-mode: lighten;
+  background-color: white;
+}
+
+button:hover {
+  background-color: lightgray;
+}
+
+.file:hover,
+.folder:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+.file a,
+.file p,
+.folder a {
+  user-select: none;
+  color: indigo;
+  font-size: 18px;
+  padding: 3px 3px 0 3px;
+}
+
+.file div a:first-of-type,
+.folder a:first-of-type {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.247);
+  padding: 20px;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10rem;
+}
+
+dialog div {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+  margin-top: 60px;
+}
+
+dialog div button {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+input[type='text'] {
+  width: 163px;
+  height: 25px;
+  font-size: 21px;
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+.file button,
+.folder button {
+  margin: 0 2px 0 0;
+  width: min-content;
+  height: 10px;
+  color: indigo;
+  padding: 5px 1.5px 0 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.file i,
+.folder i {
+  padding: 3px !important;
+  font-size: 40px;
+  height: 40px;
+}
+
+#dfiles,
+#folders {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input[type='file'] {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.flex-max {
+  display: flex;
+  justify-content: space-between;
+}
+
+.path {
+  cursor: default;
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.path * {
+  color: white;
+  font-size: 25px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  color: black;
+  font-family: monospace;
+  border: 0;
+  mix-blend-mode: lighten;
+  overflow-y: hidden;
+}
+
+textarea:first-of-type {
+  border-right: 3px solid limegreen;
+}
+
+textarea:not(:first-of-type) {
+  white-space: nowrap;
+  overflow-x: scroll;
+  padding-left: 3px;
+}
+
+.small-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.small-btns button {
+  padding: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  height: 84vh;
+}
+
+.style0 * {
+  color: black;
+  background-color: white;
+}
+
+.style0 textarea:first-of-type {
+  color: cornflowerblue;
+}
+
+.style1 * {
+  color: rgb(199 255 137);
+  background-color: #000d00;
+  mix-blend-mode: normal;
+}
+
+.style1 textarea:first-of-type {
+  color: white;
+}
+
+.style1 *::selection {
+  color: white;
+  background-color: #008900;
+}
+
+.style2 * {
+  color: rgb(214, 214, 214);
+  background: rgb(2, 0, 36);
+  mix-blend-mode: normal;
+}
+
+.style2 *::selection {
+  color: cornflowerblue;
+  background-color: white;
+}
+
+.style2 textarea:first-of-type {
+  color: cornflowerblue;
+}
+
+.style3 * {
+  color: rgb(0, 190, 190);
+  background-color: rgb(28 28 28);
+  mix-blend-mode: luminosity;
+}
+
+.style3 textarea:first-of-type {
+  color: dimgray;
+}
+
+.editor-top {
+  font-size: 18px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px 0 0 0;
+}
+
+.filters-display {
+  position: relative;
+  left: -200%;
+  display: flex;
+  flex-direction: column;
+  color: gray;
+}
+.here {
+  left: 0;
+}
+.filters-display div {
+  align-self: center;
+  text-align: center;
+  background-color: wheat;
+  margin: 5px 10px;
+  border-radius: 10px;
+  padding: 10px;
+  
+}
+.filters-display div img {
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}

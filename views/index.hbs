@@ -1,0 +1,90 @@
+<div class="body">
+    <div class="left">
+        <button id="addfolder" style="margin-top: ;">Nowy folder</button>
+        <button id="addfile">Nowy plik tekstowy</button>
+        {{#if nonuploadfolder}}
+        <button id="newnamebtn">Zmień nazwę folderu</button>
+        {{/if}}
+        <form action="/uploadf" method="post" class="right-aha" style="padding: 0;background: transparent; height: 100%" id="uploadform" enctype="multipart/form-data">
+            <div class="fileload">
+                <input type="file" name="filefold" id="file-upload" hidden style="border-radius: 6px 6px 6px 6px; width: 20%">
+                <label for="file-upload"><i class="fa-solid" style="border-right: 2px black;" >↑</i></label>
+                <p id="file-chosen" class="filenamelabel">Załaduj plik</p>
+                <button id="upload" type="button" class="uploadbutton">OK</button>
+            </div>
+            
+        </form>
+    </div>
+    <div class="right" style="overflow-y: scroll">
+        <div class="path">
+            {{#each pathArr}}
+            {{#if this.name}}
+            <a href="name={{this.path}}">{{this.name}}</a>
+            <p style="color: grey;">&nbsp;&gt;&nbsp;</p>
+            {{/if}}
+            {{/each}}
+        </div>
+        {{#each files}}
+        <form method="get" id="folders" onsubmit="return logdelete(this)">
+            {{#each this}}
+            {{#if this.type}}
+            <div class="folder">
+                <div class="flex-max">
+                    <i class="fa-solid fa-folder" style="padding-top: 0;"></i>
+                    <button formaction="/folder&name={{this.name}}">X</button>
+                </div>
+                <a href="name={{this.path}}">{{this.name}}</a>
+            </div>
+            {{/if}}
+            {{/each}}
+        </form>
+        <form method="get" id="dfiles" onsubmit="return logdelete(this)">
+            {{#each this}}
+            {{#if this.type}}
+            {{else}}
+            <div class="file">
+                <div class="flex-max">
+                    {{#if this.html}}
+                        <i class="fa-brands fa-html5"></i>
+                    {{else if this.css}}
+                       <i class="fa-brands fa-css3"></i>
+                    {{else if this.js}}
+                        <i class="fa-brands fa-node-js"></i>
+                    {{else}}
+                        <i class="fa-solid fa-file"></i>
+                    {{/if}}
+                    <button formaction="/file&name={{this.fullname}}">X</button>
+                </div>
+                <div style="display: flex">
+                    <a href="edit={{this.path}}">{{this.name}}</a>
+                    <p style="position: relative;left: -5px;">{{this.format}}</p>
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </form>
+        {{/each}}
+    </div>
+</div>
+
+<dialog id="new-element">
+    <form action="/newfolder" method="post" id="new">
+        <p id="dialogtext"></p>
+        <input type="text" name="name" pattern='^[^<>:&#147\/\\|?*\x00-\x1F]+[^ .\\\/&#147]$' required>
+        <div>
+            <button type="submit">OK</button>
+            <button id="cancel1" type="cancel">cancel</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="new-element-name">
+    <form action="/newfoldername" method="post" id="new">
+        <p>nowa nazwa folderu:</p>
+        <input type="text" name="name" pattern='^[^<>:&#147\/\\|?*\x00-\x1F]+[^ .\\\/&#147]$' required>
+        <div>
+            <button type="submit">OK</button>
+            <button id="cancel2" type="cancel">cancel</button>
+        </div>
+    </form>
+</dialog>
