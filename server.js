@@ -67,7 +67,7 @@ const getPathArr = () => {
   pathobj[pathobj.length - 1].path.substr(
     0,
     pathobj[pathobj.length - 1].path.length - 1
-  ); //usuniecie ostatniego '/'
+  );
   return pathobj;
 };
 
@@ -75,7 +75,7 @@ app.get('/', (req, res) => {
   res.render('index.hbs', {
     files: segregate(),
     pathArr: getPathArr(),
-    nonuploadfolder: currentPath.length !== 9 ? true : false, //czy obecny folder jest inny niz /upload
+    nonuploadfolder: currentPath.length !== 9 ? true : false,
   });
 });
 
@@ -131,10 +131,10 @@ app.post('/newfile', (req, res) => {
   } else {
     fs.appendFile(
       currentPath +
-        name.substr(0, name.lastIndexOf('.')) +
-        '_kopia_' +
-        new Date().valueOf() +
-        name.substr(name.lastIndexOf('.'), name.length),
+      name.substr(0, name.lastIndexOf('.')) +
+      '_kopia_' +
+      new Date().valueOf() +
+      name.substr(name.lastIndexOf('.'), name.length),
       '',
       (err) => {
         if (err) throw err;
@@ -210,9 +210,9 @@ app.post('/uploadf', type, function (req, res) {
     currentPath +
     (name.includes('.')
       ? name.substr(0, name.lastIndexOf('.')) +
-        '_' +
-        req.file.filename.substr(0, 4) +
-        name.substr(name.lastIndexOf('.'), name.length)
+      '_' +
+      req.file.filename.substr(0, 4) +
+      name.substr(name.lastIndexOf('.'), name.length)
       : name + '_' + req.file.filename.substr(0, 4) + '.txt');
   fs.readFile(temp_file, (err, data) => {
     fs.unlink(temp_file, (err) => {
@@ -249,8 +249,8 @@ app.post('/newfoldername', (req, res) => {
       0,
       currentPath.slice(0, currentPath.length - 1).lastIndexOf('/')
     ) +
-      '/' +
-      req.body.name,
+    '/' +
+    req.body.name,
     (err) => {
       if (err) throw err;
       currentPath =
@@ -303,13 +303,17 @@ app.get('/edit=:path', (req, res) => {
         { name: 'invert' },
       ],
     });
-  } else {
+  }
+  else {
     fs.readFile(path, (err, data) => {
       isCurrFileImg = false;
       if (err) throw err;
       if (data == '') {
         if (format == 'html') {
-          var starterData = `<!DOCTYPE html>
+
+          console.log("yyyyyyyyyyyyyyyyyyyyy");
+          var starterData =
+            `<!DOCTYPE html>
           <html lang="en">
           <head>
               <meta charset="UTF-8">
@@ -322,20 +326,19 @@ app.get('/edit=:path', (req, res) => {
           </body>
           </html>`;
         } else if (format == 'js') {
-          var starterData = 'let a = 0';
+          var starterData = 'console.log("aha")';
         } else if (format == 'css') {
-          var starterData = '* { margin: 0; padding: 0 }';
+          var starterData = '* { background: red;}';
+        }
+        else {
+          console.log("no format")
         }
       }
-      res.render('edytor.hbs', {
-        urlPath: req.params.path,
-        path: path,
-        contents: data !== '' ? data.toString('utf8') : starterData,
-        currentFile: currentFile.substr(
-          currentFile.lastIndexOf('/') + 1,
-          currentFile.length
-        ),
-      });
+
+      fs.writeFile("path", "", function () {
+
+
+      })
     });
   }
 });
