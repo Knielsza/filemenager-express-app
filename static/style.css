@@ -7,7 +7,7 @@
   transition: 0.3s;
 }
 
-.fileload{
+.fileload {
   display: flex;
   flex-direction: row;
   border: 2px black;
@@ -17,7 +17,7 @@
 
 }
 
-.filenamelabel{
+.filenamelabel {
   width: 80%;
   border-top: 2px black;
   display: flex;
@@ -26,8 +26,9 @@
   color: black;
   text-align: center;
 }
-.uploadbutton{
-  width: 30px;
+
+.uploadbutton {
+  width: 40px;
   height: 24px;
   border-radius: 0 0 0 0;
   text-align: center;
@@ -80,7 +81,7 @@ label {
   background: wheat;
 }
 
-.aha{
+.aha {
   height: 30px;
 }
 
@@ -247,7 +248,7 @@ textarea {
 }
 
 textarea:first-of-type {
-  border-right: 3px solid limegreen;
+  border-right: 3px solid #ffafcc;
 }
 
 textarea:not(:first-of-type) {
@@ -278,27 +279,27 @@ textarea:not(:first-of-type) {
 }
 
 .style0 textarea:first-of-type {
-  color: cornflowerblue;
+  color: red;
 }
 
 .style1 * {
-  color: rgb(199 255 137);
-  background-color: #000d00;
+  color: black;
+  background-color: #cdb4db;
   mix-blend-mode: normal;
 }
 
 .style1 textarea:first-of-type {
-  color: white;
+  color: black;
 }
 
 .style1 *::selection {
   color: white;
-  background-color: #008900;
+  background-color: red;
 }
 
 .style2 * {
-  color: rgb(214, 214, 214);
-  background: rgb(2, 0, 36);
+  color: black;
+  background: #90dbf4;
   mix-blend-mode: normal;
 }
 
@@ -308,17 +309,17 @@ textarea:not(:first-of-type) {
 }
 
 .style2 textarea:first-of-type {
-  color: cornflowerblue;
+  color: white;
 }
 
 .style3 * {
-  color: rgb(0, 190, 190);
-  background-color: rgb(28 28 28);
+  color: red;
+  background-color: gray;
   mix-blend-mode: luminosity;
 }
 
 .style3 textarea:first-of-type {
-  color: dimgray;
+  color: black;
 }
 
 .editor-top {
@@ -336,9 +337,11 @@ textarea:not(:first-of-type) {
   flex-direction: column;
   color: gray;
 }
+
 .here {
   left: 0;
 }
+
 .filters-display div {
   align-self: center;
   text-align: center;
@@ -346,8 +349,9 @@ textarea:not(:first-of-type) {
   margin: 5px 10px;
   border-radius: 10px;
   padding: 10px;
-  
+
 }
+
 .filters-display div img {
   border-radius: 10px;
   cursor: pointer;

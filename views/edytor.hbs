@@ -4,7 +4,9 @@
             <button id="less" hidden></button>
             <button style="background-color: white; margin-top: 5px" id="changecolor">Themes</button>
         </div>
-        <button id="saveSettings">Zapisz ustawienia</button>
+        <button style=" margin: 5px; padding: 3px; background: #dda15e; height: 30px" id="saveChanges">Zapisz
+            zmiany</button>
+        <button id="saveSettings" style="margin-top: 10px;">Zapisz ustawienia</button>
         <button id="renameFile">Zmiana nazwy</button>
         {{!-- <form action="/previewFile={{urlPath}}" method="get">
             <button style="width: 100%;" id="addfile">Podgląd pliku</button>
@@ -13,7 +15,7 @@
     <div class="right" style="padding: 0;">
         <div class="editor-top">
             <p style='color: white;align-self: center;'>{{path}}</p>
-            <button style="width: 20%; margin: 5px; padding: 3px; background: white" id="saveChanges">Zapisz zmiany</button>
+
         </div>
         <div class="flex-max scrollable" id="style-switcher">
             <textarea style="width: 32px; text-align: center" id="line-counter" readonly></textarea>
